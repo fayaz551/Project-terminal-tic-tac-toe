@@ -8,18 +8,31 @@
     If the move is not valid:
         - you can output 'Try again...'
         - and then return false
-    Testing your function by calling it with some values. An example board is:
-        let board = [
-            ['X', '_', '_'],
-            ['_', 'X', '_'],
-            ['O', 'O', 'X']
-        ];
-*/
-function validateMove(move, board) {
-    // Implement this at the end if you have time, otherwise you can help your teammates!
-    return true;
-}
+    Testing your function by calling it with some values. An example board is:*/
+let board = [
+  ["X", "_", "_"],
+  ["_", "X", "_"],
+  ["O", "O", "X"],
+];
 
+function validateMove(move, board) {
+  const validNumbers = [1, 2, 3];
+  const row = Number(move.split(",")[0]);
+  const column = Number(move.split(",")[1]);
+  const boardRow = board[row - 1];
+  const boardColumn = boardRow[column - 1];
+
+  if (!validNumbers.includes(row) || !validNumbers.includes(column)) {
+    console.log("Try again...");
+    return false;
+  }
+  if (boardColumn !== "_") {
+    console.log("Try again...");
+    return false;
+  }
+
+  return true;
+}
 /*
     Given 3 parameters:
         - a board (an array of arrays)
@@ -32,5 +45,9 @@ function validateMove(move, board) {
             - Return true
 */
 export function makeMove(board, move, player) {
-    return false;
+  if (!validateMove(move, board)) return false;
+  const [row, column] = move.split(",").map(Number);
+  board[row - 1][column - 1] = player;
+
+  return board;
 }

@@ -55,7 +55,7 @@ describe("printBoard", () => {
     expect(() => printBoard(board)).toThrow("Board is not square!");
   });
 
-  it("throws an error if the board includes sings other than X, O, and _", () => {
+  it("throws an error if the board includes signs other than X, O, and _", () => {
     const board = [
       ["O", "_", "Y"],
       ["_", "_", "X"],

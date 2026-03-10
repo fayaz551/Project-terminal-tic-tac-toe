@@ -34,6 +34,11 @@ function checkRow(board, player, rowNumber) {
     Otherwise, return false
 */
 function checkColumn(board, player, columnNumber) {
+    return (
+        board[0][columnNumber] === player &&
+        board[1][columnNumber] === player &&
+        board[2][columnNumber] === player
+    );
 }
 
 /*

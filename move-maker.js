@@ -18,13 +18,13 @@ let board = [
 function validateMove(move, board) {
   const validNumbers = [1, 2, 3];
   const [row, column] = move.split(",").map(Number);
-  const boardRow = row - 1;
-  const boardColumn = column - 1;
-
   if (!validNumbers.includes(row) || !validNumbers.includes(column)) {
     console.log("Invalid input");
     return false;
   }
+  const boardRow = row - 1;
+  const boardColumn = column - 1;
+
   if (board[boardRow][boardColumn] !== "_") {
     console.log("Try again...");
     return false;
@@ -32,7 +32,6 @@ function validateMove(move, board) {
 
   return true;
 }
-console.log(validateMove("2,3", board));
 
 /*
     Given 3 parameters:

@@ -17,22 +17,23 @@ let board = [
 
 function validateMove(move, board) {
   const validNumbers = [1, 2, 3];
-  const row = Number(move.split(",")[0]);
-  const column = Number(move.split(",")[1]);
-  const boardRow = board[row - 1];
-  const boardColumn = boardRow[column - 1];
+  const [row, column] = move.split(",").map(Number);
+  const boardRow = row - 1;
+  const boardColumn = column - 1;
 
   if (!validNumbers.includes(row) || !validNumbers.includes(column)) {
-    console.log("Try again...");
+    console.log("Invalid input");
     return false;
   }
-  if (boardColumn !== "_") {
+  if (board[boardRow][boardColumn] !== "_") {
     console.log("Try again...");
     return false;
   }
 
   return true;
 }
+console.log(validateMove("2,3", board));
+
 /*
     Given 3 parameters:
         - a board (an array of arrays)
